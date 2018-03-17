@@ -1,0 +1,75 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "start": "nodemon --watch src --exec babel-node index.js rest",
+    "exec": "babel-node . rest",
+    "clean:build": "rm -rf tmp",
+    "clean:dist": "rm -rf dist",
+    "clean": "npm run clean:build && npm run clean:dist",
+    "transpile": "rm -rf tmp && gulp lint && babel . --out-dir tmp --ignore assets\\*,dist\\*,tmp\\*,node_modules\\*,test\\*,gulpfile.js",
+    "build": "npm run transpile && gulp build",
+    "pkg:64": "pkg tmp --targets node9-x64 --output dist/backend-x64.exe",
+    "pkg:32": "pkg tmp --targets node9-x86 --output dist/backend-x86.exe",
+    "dist": "npm run clean && npm run build && npm run pkg:64 && npm run pkg:32 && cp ./assets/ecosystem.json dist/",
+    "dist:64": "npm run clean && npm run build && npm run pkg:64 && cp ./assets/ecosystem.json dist/",
+    "dist:32": "npm run clean && npm run build && npm run pkg:32 && cp ./assets/ecosystem.json dist/",
+    "test": "npm run test:integration && npm run test:unit",
+    "test:integration": "mocha --opts ./test/integration/mocha.opts ./test/integration/**/*.spec.js",
+    "test:unit": "mocha --opts ./test/unit/mocha.opts ./test/unit/**/*.spec.js",
+    "docs-to-json": "api-console generate-json lib/rest/api.raml -o dist/api.docs.backend.json",
+    "install-rdx": "npm i -S http://service.radixeng.com.br:8888/rdx-framework/node-core.git http://service.radixeng.com.br:8888/rdx-framework/node-plugin-pouchdb.git http://service.radixeng.com.br:8888/rdx-framework/node-plugin-pouchdb-crud.git",
+    "gulp": "gulp"
+  },
+  "bin": {
+    "backend": "./index.js"
+  },
+  "pkg": {
+    "assets": [
+      "assets/**/*",
+      "config/**/*"
+    ]
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^2.14.1",
+    "config": "^1.30.0",
+    "debug": "^3.1.0",
+    "lodash": "^4.17.5",
+    "log4js": "^2.5.3",
+    "pouchdb": "^6.4.3",
+    "rdx-framework": "http://service.radixeng.com.br:8888/rdx-framework/node-core.git",
+    "rdx-plugin-pouchdb": "http://service.radixeng.com.br:8888/rdx-framework/node-plugin-pouchdb.git",
+    "rdx-plugin-pouchdb-crud": "http://service.radixeng.com.br:8888/rdx-framework/node-plugin-pouchdb-crud.git",
+    "uuid": "^3.2.1"
+  },
+  "devDependencies": {
+    "api-console-cli": "^0.2.12",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-minify": "^0.3.0",
+    "chai": "^4.1.2",
+    "cross-env": "^5.1.4",
+    "eslint": "^4.18.2",
+    "event-stream": "^3.3.4",
+    "gulp": "^3.9.1",
+    "gulp-check": "^0.1.2",
+    "gulp-eslint": "^4.0.2",
+    "gulp-rename": "^1.2.2",
+    "gulp-sizereport": "^1.2.0",
+    "mocha": "^5.0.4",
+    "nodemon": "^1.17.1",
+    "pkg": "^4.3.0",
+    "pouchdb-adapter-memory": "^6.4.3",
+    "supertest": "^3.0.0",
+    "testdouble": "^3.5.2",
+    "testdouble-chai": "^0.5.0"
+  }
+}

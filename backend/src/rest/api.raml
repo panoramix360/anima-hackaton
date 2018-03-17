@@ -1,0 +1,330 @@
+#%RAML 1.0
+title: Example.backend.API
+version: v1
+baseUri: http://localhost:9000
+protocols:
+  - HTTPS
+types:
+  UpdateRegister:
+    description:
+      Objeto representa a atualização de um registro na base de dados.
+    type: object
+    properties:
+      id:
+        pattern: ^[a-f0-9]{8}\-[a-f0-9]{4}\-[a-f0-9]{4}\-[a-f0-9]{4}\-[a-f0-9]{12}$
+        type: string
+        description: Identificador do registro atualizado/criado.
+      ok?:
+        type: boolean
+        description: Status de sucesso ou não da ação
+      rev:
+        description: Revisão do documento
+        type: string
+        pattern: ^[0-9]\-[a-f0-9]{32}$
+  Error:
+    description: |
+      Os erros podem ser de Negócio(status code: 520), Validação(status code 521)
+    type: object
+    properties:
+      code:
+        description: Identificador unico do erro. Se o código for -1, então referece a um erro não tratado.
+        type: number
+        required: true
+        default: -1
+      message:
+        description: Descrição do erro
+        type: string
+        required: true
+  Example:
+    description: |
+      Entidade Example entity.
+
+      **dbname:** *db-example*
+    type: object
+    properties:
+      _id?:
+        pattern: ^[a-f0-9]{8}\-[a-f0-9]{4}\-[a-f0-9]{4}\-[a-f0-9]{4}\-[a-f0-9]{12}$
+        type: string
+        description: Identificador do registro. Se nulo, quando for salvo, será criado um novo registro na base de dados.
+      name:
+        type: string
+        description: Uma propriedade de example
+      age:
+        type: number
+        description: Uma propriedade de example
+  ExampleFilter:
+    description: Filtro de registros Example
+    type: object
+    properties:
+      name?:
+        type: string
+        description: filtra por nome
+        required: false
+      age?:
+        type: number
+        description: filtra por idade
+        required: false
+
+/example:
+  description: CRUD de Example.
+  post:
+    description: |
+      Atualiza/Insere um novo Example.
+
+      Se o campo **\_id** estiver preenchido, o registro será atualizado. Caso contrário, o registro será criado.
+    body:
+      application/json:
+        description: JSON do objeto Example
+        type: Example
+    responses:
+      200:
+        description: |
+          Sucesso na atualização do registro.
+        body:
+          application/json:
+            description: JSON do registro de ação do banco de dados
+            type: UpdateRegister
+            example: |
+              {
+                "ok": true,
+                "id": "6fad20be-5545-4189-b51b-f455750ba861",
+                "rev": "1-4bb9568707184716bf20d0fcf232501c"
+              }
+      520:
+        description: |
+          Erros de négocio.
+
+          Abaixo segue a lista de erros:
+
+          | Código | Mensagem |
+          |--------|----------|
+          | 1      | Example já cadastrado em algum lugar |
+          | 2      | Não foi possivel executar alguma ação com Example |
+        body:
+          application/json:
+            description: JSON do objeto de erro
+            type: Error
+            example: |
+              {
+                "code": 1,
+                "message": "Example já cadastrado em algum lugar"
+              }
+      521:
+        description: |
+          Erro de validação de objeto.
+          Código -1000, e na messagem aparecerá o motivo da validação.
+        body:
+          application/json:
+            description: JSON do objeto de erro
+            type: Error
+            example: |
+              {
+                "code": -1000,
+                "message": "instance.name is not of a type(s) string"
+              }
+      500:
+        description: Erro genérico. Se aparecer, contactar o administrador do sistema.
+        body:
+          application/json:
+            description: JSON do objeto de erro
+            type: Error
+            example: |
+              {
+                "code": -1,
+                "message": "Apareceu um erro gererico"
+              }
+  get:
+    description: |
+      Busca lista de Examples. Tal lista pode ser filtrado pelos campos do queryParameter.
+    queryParameters:
+      name:
+        displayName: Nome
+        type: string
+        description: Nome que será filtrado
+        required: false
+        example: Fausto
+      age:
+        displayName: Idade
+        type: number
+        description: Idade que será filtrada
+        required: false
+        example: 28
+    responses:
+      200:
+        description: |
+          Sucesso na execução da consulta de Examples
+        body:
+          application/json:
+            description: JSON array do tipo Example
+            type: Example[]
+            example: |
+              [{
+                "name": "Fausto0",
+                "age": 28,
+                "_id": "9900576a-e1c2-4546-b84b-95db3d19a701"
+              }]
+      520:
+        description: |
+          Erros de négocio.
+
+          Abaixo segue a lista de erros:
+
+          | Código | Mensagem |
+          |--------|----------|
+          | 1      | Example já cadastrado em algum lugar |
+          | 2      | Não foi possivel executar alguma ação com Example |
+        body:
+          application/json:
+            description: JSON do objeto de erro
+            type: Error
+            example: |
+              {
+                "code": 1,
+                "message": "Example já cadastrado em algum lugar"
+              }
+      521:
+        description: |
+          Erro de validação de objeto.
+          Código -1000, e na messagem aparecerá o motivo da validação.
+        body:
+          application/json:
+            description: JSON do objeto de erro
+            type: Error
+            example: |
+              {
+                "code": -1000,
+                "message": "instance.name is not of a type(s) string"
+              }
+      500:
+        description: Erro genérico. Se aparecer, contactar o administrador do sistema.
+        body:
+          application/json:
+            description: JSON do objeto de erro
+            type: Error
+            example: |
+              {
+                "code": -1,
+                "message": "Apareceu um erro gererico"
+              }
+
+  /{id}:
+    description: |
+      Ação sobre o registro de id acima assinalado.
+    get:
+      description: Busca um registro de Examples
+      responses:
+        200:
+          description: Sucesso na consulta do registro de Example
+          body:
+            application/json:
+              description: JSON de Example
+              type: Example
+              example: |
+                {
+                  "name": "Fausto0",
+                  "age": 28,
+                  "_id": "9900576a-e1c2-4546-b84b-95db3d19a701"
+                }
+        520:
+          description: |
+            Erros de négocio.
+
+            Abaixo segue a lista de erros:
+
+            | Código | Mensagem |
+            |--------|----------|
+            | 1      | Example já cadastrado em algum lugar |
+            | 2      | Não foi possivel executar alguma ação com Example |
+            | 3      | Registro não encontrado |
+          body:
+            application/json:
+              description: JSON do objeto de erro
+              type: Error
+              example: |
+                {
+                  "code": 1,
+                  "message": "Example já cadastrado em algum lugar"
+                }
+        521:
+          description: |
+            Erro de validação de objeto.
+            Código -1000, e na messagem aparecerá o motivo da validação.
+          body:
+            application/json:
+              description: JSON do objeto de erro
+              type: Error
+              example: |
+                {
+                  "code": -1000,
+                  "message": "instance.name is not of a type(s) string"
+                }
+        500:
+          description: Erro genérico. Se aparecer, contactar o administrador do sistema.
+          body:
+            application/json:
+              description: JSON do objeto de erro
+              type: Error
+              example: |
+                {
+                  "code": -1,
+                  "message": "Apareceu um erro gererico"
+                }
+    delete:
+      description: Remove um registro de Examples
+      responses:
+        200:
+          description: Sucesso na remoção do registro de Example
+          body:
+            application/json:
+              description: JSON do registro de ação do banco de dados
+              type: UpdateRegister
+              example: |
+                {
+                  "ok": true,
+                  "id": "6fad20be-5545-4189-b51b-f455750ba861",
+                  "rev": "2-c4792efff5884c7f93346508438c2c6a"
+                }
+        520:
+          description: |
+            Erros de négocio.
+
+            Abaixo segue a lista de erros:
+
+            | Código | Mensagem |
+            |--------|----------|
+            | 1      | Example já cadastrado em algum lugar |
+            | 2      | Não foi possivel executar alguma ação com Example |
+            | 3      | Registro não encontrado |
+          body:
+            application/json:
+              description: JSON do objeto de erro
+              type: Error
+              example: |
+                {
+                  "code": 1,
+                  "message": "Example já cadastrado em algum lugar"
+                }
+        521:
+          description: |
+            Erro de validação de objeto.
+            Código -1000, e na messagem aparecerá o motivo da validação.
+          body:
+            application/json:
+              description: JSON do objeto de erro
+              type: Error
+              example: |
+                {
+                  "code": -1000,
+                  "message": "instance.name is not of a type(s) string"
+                }
+        500:
+          description: Erro genérico. Se aparecer, contactar o administrador do sistema.
+          body:
+            application/json:
+              description: JSON do objeto de erro
+              type: Error
+              example: |
+                {
+                  "code": -1,
+                  "message": "Apareceu um erro gererico"
+                }

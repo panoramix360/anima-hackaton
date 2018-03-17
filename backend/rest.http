@@ -1,0 +1,31 @@
+POST https://localhost:9000/example
+Content-Type: application/json
+
+{
+  "name":"Fausto2",
+  "age": 28
+}
+
+###
+GET https://localhost:9000/example
+Content-Type: application/json
+
+###
+GET https://localhost:9000/example?name=Fausto2
+Content-Type: application/json
+
+###
+GET https://localhost:9000/example/8633b851-d4e3-4fa6-9a0f-8cef752a2b79
+Content-Type: application/json
+
+###
+DELETE https://localhost:9000/example/8633b851-d4e3-4fa6-9a0f-8cef752a2b79
+Content-Type: application/json
+
+###
+GET https://localhost:9000/example/errors/business
+Content-Type: application/json
+
+###
+GET https://localhost:9000/example/errors
+Content-Type: application/json
