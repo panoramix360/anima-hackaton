@@ -4,8 +4,6 @@
  * @author 'lucas.reis,fausto.junqueira'
  */
 
-import rdx from 'rdx-framework';
-
 import {
   Disciplina
 } from '../../entity';
@@ -15,9 +13,9 @@ import {
 import CrudLoggerBusiness from '../../lib/crud-logger-business';
 
 export class DisciplinaBusiness extends CrudLoggerBusiness {
-  toFilter(filter){
+  toFilter() {
     this.logger.trace('Disciplina');
-    return model => true;
+    return () => true;
   }
 }
 
