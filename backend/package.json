@@ -23,7 +23,7 @@
     "test:integration": "mocha --opts ./test/integration/mocha.opts ./test/integration/**/*.spec.js",
     "test:unit": "mocha --opts ./test/unit/mocha.opts ./test/unit/**/*.spec.js",
     "docs-to-json": "api-console generate-json lib/rest/api.raml -o dist/api.docs.backend.json",
-    "install-rdx": "npm i -S http://service.radixeng.com.br:8888/rdx-framework/node-core.git http://service.radixeng.com.br:8888/rdx-framework/node-plugin-pouchdb.git http://service.radixeng.com.br:8888/rdx-framework/node-plugin-pouchdb-crud.git",
+    "install-rdx": "npm i -S git+ssh://git@service.radixeng.com.br:rdx-framework/node-core.git git+ssh://git@service.radixeng.com.br:rdx-framework/node-plugin-pouchdb.git git+ssh://git@service.radixeng.com.br:rdx-framework/node-plugin-pouchdb-crud.git",
     "gulp": "gulp"
   },
   "bin": {
@@ -44,9 +44,9 @@
     "lodash": "^4.17.5",
     "log4js": "^2.5.3",
     "pouchdb": "^6.4.3",
-    "rdx-framework": "http://service.radixeng.com.br:8888/rdx-framework/node-core.git",
-    "rdx-plugin-pouchdb": "http://service.radixeng.com.br:8888/rdx-framework/node-plugin-pouchdb.git",
-    "rdx-plugin-pouchdb-crud": "http://service.radixeng.com.br:8888/rdx-framework/node-plugin-pouchdb-crud.git",
+    "rdx-framework": "git+ssh://git@service.radixeng.com.br:rdx-framework/node-core.git",
+    "rdx-plugin-pouchdb": "git+ssh://git@service.radixeng.com.br:rdx-framework/node-plugin-pouchdb.git",
+    "rdx-plugin-pouchdb-crud": "git+ssh://git@service.radixeng.com.br:rdx-framework/node-plugin-pouchdb-crud.git",
     "uuid": "^3.2.1"
   },
   "devDependencies": {
