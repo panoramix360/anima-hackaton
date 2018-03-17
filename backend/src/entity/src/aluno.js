@@ -1,20 +1,21 @@
 /**
- * Entity Example.
+ * Entity Aluno.
  * @module '@backend/src/entity'
- * @author 'fausto.junqueira'
+ * @author 'lucas.reis,fausto.junqueira'
  */
 
 import rdx from 'rdx-framework';
 
 export default rdx.model.modelBuilder()
-  .pouchdb('db-example', { adapter: 'memory' })
+  .pouchdb('db-aluno')
   .schema({
-    "id": "/Example",
+    "id": "/Aluno",
     "type": "object",
     "properties": {
       "_id": {"type": "string"},
-      "name": { "type": "string", "required": true },
-      "age": {"type": "number", "required": true}
+      "nome": { "type": "string", "required": true },
+      "foto": { "type": "string", "required": true },
+      "matricula": { "type": "string", "required": true }
     }
   })
   .class(class {
