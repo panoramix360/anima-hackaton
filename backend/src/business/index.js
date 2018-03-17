@@ -4,8 +4,17 @@
  * @author 'fausto.junqueira'
  */
 
-import exampleBusiness from './src/example-business';
+import alunoBusiness from './src/aluno-business';
+import aulaBusiness from './src/aula-business';
+import disciplinaBusiness from './src/disciplina-business';
+import presencaBusiness from './src/presenca-business';
+import professorBusiness from './src/professor-business';
+
 
 export {
-  exampleBusiness
+  alunoBusiness,
+  aulaBusiness,
+  disciplinaBusiness,
+  presencaBusiness,
+  professorBusiness
 }

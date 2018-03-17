@@ -1,16 +1,16 @@
 /**
  * Módulo de dominio do backend da aplicação.
  * @module '@backend/src/business'
- * @author 'fausto.junqueira'
+ * @author 'lucas.reis,fausto.junqueira'
  */
 
 import rdx from 'rdx-framework';
 
 import {
-  Example
+  Aula
 } from '../../entity';
 import {
-  ExampleFilter
+  DummyFilter
 } from '../../entity/filter';
 import CrudLoggerBusiness from '../../lib/crud-logger-business';
 
@@ -19,8 +19,7 @@ const {
   BusinessError
 } = rdx.model.error;
 
-
-export class ExampleBusiness extends CrudLoggerBusiness {
+export class AulaBusiness extends CrudLoggerBusiness {
 
   simpleErrorBusiness() {
     throw ErrorFactory(BusinessError, "ERROR_SIMPLE");
@@ -31,10 +30,10 @@ export class ExampleBusiness extends CrudLoggerBusiness {
   }
 
   toFilter(filter){
-    this.logger.trace('junda');
-    return model => !filter.name || filter.name === model.name;
+    this.logger.trace('Aula');
+    return model => true;
   }
 
 }
 
-export default new ExampleBusiness(Example, ExampleFilter);
+export default new AulaBusiness(Aula, DummyFilter);
