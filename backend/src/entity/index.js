@@ -4,6 +4,16 @@
  * @author 'fausto.junqueira'
  */
 
-import Example from './src/example';
+import Aluno from './src/aluno';
+import Professor from './src/professor';
+import Disciplina from './src/disciplina';
+import Aula from './src/aula';
+import Presenca from './src/presenca';
 
-export {Example};
+export {
+    Aluno,
+    Professor,
+    Disciplina,
+    Aula,
+    Presenca
+};
