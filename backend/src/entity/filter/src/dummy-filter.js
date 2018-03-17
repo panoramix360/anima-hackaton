@@ -7,12 +7,9 @@ import rdx from 'rdx-framework';
 
 export default rdx.model.modelBuilder()
   .schema({
-    "id": "/ExampleFilter",
+    "id": "/DummyFilter",
     "type": "object",
-    "properties": {
-      "name": {"type": "string"},
-      "age": {"type": "string"}
-    }
+    "properties": {}
   })
   .class(class {
     constructor(obj) {

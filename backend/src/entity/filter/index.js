@@ -4,6 +4,6 @@
  * @author 'fausto.junqueira'
  */
 
-import ExampleFilter from './src/example-filter';
+import DummyFilter from './src/dummy-filter';
 
-export { ExampleFilter };
+export { DummyFilter };

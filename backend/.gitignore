@@ -65,3 +65,6 @@ dist/*
 
 # babel builded folder
 tmp/*
+
+# ignoring db files
+db-*
