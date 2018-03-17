@@ -14,21 +14,7 @@ import {
 } from '../../entity/filter';
 import CrudLoggerBusiness from '../../lib/crud-logger-business';
 
-const {
-  ErrorFactory,
-  BusinessError
-} = rdx.model.error;
-
-
 export class AlunoBusiness extends CrudLoggerBusiness {
-  simpleErrorBusiness() {
-    throw ErrorFactory(BusinessError, "ERROR_SIMPLE");
-  }
-
-  simpleError() {
-    throw new Error('errors gereric');
-  }
-
   toFilter(filter){
     this.logger.trace('Aluno');
     return model => true;
