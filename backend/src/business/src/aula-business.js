@@ -28,7 +28,7 @@ export class AulaBusiness extends CrudLoggerBusiness {
     }
     const presencaPorDisciplina = groupBy(presencaList, presenca => presenca.aula.disciplina._id);
 
-    const dispT = Disciplina.find(() => true);
+    const dispT = await Disciplina.find(() => true);
 
     const consolidado = map(presencaPorDisciplina, (presencas,disciplinaId) => {
       const disciplina = dispT.find(x => x._id === disciplinaId);
