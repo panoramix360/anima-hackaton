@@ -1,4 +1,4 @@
-POST http://localhost:9000/aluno
+POST http://localhost:8080/aluno
 Content-Type: application/json
 
 # Guilherme
@@ -8,7 +8,7 @@ Content-Type: application/json
   "matricula": "1"
 }
 
-POST http://localhost:9000/aluno
+POST http://localhost:8080/aluno
 Content-Type: application/json
 
 # Lucas Reis
@@ -18,7 +18,7 @@ Content-Type: application/json
   "matricula": "2"
 }
 
-POST http://localhost:9000/aluno
+POST http://localhost:8080/aluno
 Content-Type: application/json
 
 # Fausto Junqueira
@@ -28,7 +28,7 @@ Content-Type: application/json
   "matricula": "3"
 }
 
-POST http://localhost:9000/aluno
+POST http://localhost:8080/aluno
 Content-Type: application/json
 
 # Caio
@@ -38,7 +38,7 @@ Content-Type: application/json
   "matricula": "4"
 }
 
-POST http://localhost:9000/aluno
+POST http://localhost:8080/aluno
 Content-Type: application/json
 
 # Carlos Eduardo
@@ -48,7 +48,7 @@ Content-Type: application/json
   "matricula": "5"
 }
 
-POST http://localhost:9000/aluno
+POST http://localhost:8080/aluno
 Content-Type: application/json
 
 # Alyssa Scarcini
@@ -58,7 +58,7 @@ Content-Type: application/json
   "matricula": "6"
 }
 
-POST http://localhost:9000/aluno
+POST http://localhost:8080/aluno
 Content-Type: application/json
 
 # Júlio Cesar
@@ -68,7 +68,7 @@ Content-Type: application/json
   "matricula": "7"
 }
 
-POST http://localhost:9000/aluno
+POST http://localhost:8080/aluno
 Content-Type: application/json
 
 # Daniel Freitas
@@ -78,7 +78,7 @@ Content-Type: application/json
   "matricula": "7"
 }
 
-POST http://localhost:9000/aluno
+POST http://localhost:8080/aluno
 Content-Type: application/json
 
 # Marli Rodrigues

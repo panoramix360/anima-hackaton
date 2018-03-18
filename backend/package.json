@@ -12,7 +12,7 @@
     "clean:build": "rm -rf tmp",
     "clean:dist": "rm -rf dist",
     "clean": "npm run clean:build && npm run clean:dist",
-    "transpile": "gulp lint && babel . --out-dir tmp --ignore assets\\*,dist\\*,tmp\\*,node_modules\\*,test\\*,gulpfile.js",
+    "transpile": "rm -rf tmp && gulp lint && babel . --out-dir tmp --ignore assets\\*,dist\\*,tmp\\*,node_modules\\*,test\\*,gulpfile.js",
     "build": "npm run transpile && gulp build",
     "pkg:64": "pkg tmp --targets node9-x64 --output dist/backend-x64.exe",
     "pkg:32": "pkg tmp --targets node9-x86 --output dist/backend-x86.exe",

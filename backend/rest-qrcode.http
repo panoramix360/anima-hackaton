@@ -1,9 +1,9 @@
 ### QRCode
-GET http://localhost:9000/qrcode/gerar/313131
+GET http://localhost:8080/qrcode/gerar/313131
 Content-Type: application/json
 
 ### QRCode
-POST http://localhost:9000/qrcode/validar
+POST http://localhost:8080/qrcode/validar
 Content-Type: application/json
 
 
