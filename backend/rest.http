@@ -88,8 +88,11 @@ Content-Type: application/json
   "data": "2018-03-18T00:06:29.416Z"
 }
 
+###
+GET http://localhost:8080/aula/alunos/d0f79fde-b6fc-418b-91dd-5371fab7e4a6
+
 ### List
-GET http://localhost:8080/aula?profid=a6d8acd8-f9c4-4940-813e-2b83ccf4914c
+GET http://localhost:8080/aula
 Content-Type: application/json
 
 ### Get by id

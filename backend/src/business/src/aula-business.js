@@ -44,6 +44,11 @@ export class AulaBusiness extends CrudLoggerBusiness {
     return consolidado;
   }
 
+  async alunosPresentes(idAula) {
+    const presencasDaAula = await Presenca.find(p => p.aula._id === idAula);
+    return presencasDaAula.map(p => p.aluno);
+  }
+
   toFilter(aulaFilter) {
     return aula => {
       return !aulaFilter.profid || aulaFilter.profid === aula.professor._id;

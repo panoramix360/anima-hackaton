@@ -17,6 +17,7 @@ export class PresencaBusiness extends CrudLoggerBusiness {
     this.logger.trace('Presenca');
     return () => true;
   }
+
 }
 
 export default new PresencaBusiness(Presenca, DummyFilter);
