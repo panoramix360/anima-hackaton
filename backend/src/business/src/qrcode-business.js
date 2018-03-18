@@ -21,7 +21,7 @@ export class QRCodeBusiness {
   }
 
   ultimo() {
-    return this.ultimo;
+    return {aluno:this.ultimo};
   }
 }
 
