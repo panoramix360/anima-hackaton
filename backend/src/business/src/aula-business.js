@@ -6,7 +6,8 @@
 
 import {
   Aula,
-  Presenca
+  Presenca,
+  Disciplina
 } from '../../entity';
 import {
   AulaFilter
@@ -27,8 +28,8 @@ export class AulaBusiness extends CrudLoggerBusiness {
     }
     const presencaPorDisciplina = groupBy(presencaList, presenca => presenca.aula.disciplina._id);
 
-    const consolidado = map(presencaPorDisciplina, presencas => {
-      const disciplina = presencas.map(p => p.aula.disciplina)[0];
+    const consolidado = map(presencaPorDisciplina, (presencas,disciplinaId) => {
+      const disciplina = await Disciplina.get(disciplinaId);
       const aulas = presencas.map(p => p.aula);
       const aulastotal = todasAulas.filter(x => x.disciplina._id === disciplina._id).map(a => {
         if(aulas.find(x => a._id === x._id)){
