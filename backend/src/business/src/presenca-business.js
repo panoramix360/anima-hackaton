@@ -8,16 +8,15 @@ import {
   Presenca
 } from '../../entity';
 import {
-  DummyFilter
+  PresencaFilter
 } from '../../entity/filter';
 import CrudLoggerBusiness from '../../lib/crud-logger-business';
 
 export class PresencaBusiness extends CrudLoggerBusiness {
-  toFilter() {
-    this.logger.trace('Presenca');
-    return () => true;
+  toFilter(presencaFilter) {
+    return presenca => !presencaFilter.aulaId || presenca.aula._id === presencaFilter.aulaId;
   }
 
 }
 
-export default new PresencaBusiness(Presenca, DummyFilter);
+export default new PresencaBusiness(Presenca, PresencaFilter);

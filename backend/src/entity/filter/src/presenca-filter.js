@@ -7,10 +7,10 @@ import rdx from 'rdx-framework';
 
 export default rdx.model.modelBuilder()
   .schema({
-    "id": "/AlunoFilter",
+    "id": "/PresencaFilter",
     "type": "object",
     "properties": {
-      "aulaid": {"type": "string"}
+      "aulaId": {"type": "string"}
     }
   })
   .class(class {
