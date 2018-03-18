@@ -1,6 +1,6 @@
 {
   "http-server": {
-    "port": 9000
+    "port": 8080
   },
   "errors-table": {
     "ERROR_SIMPLE": { "code": 1, "message": "test errors" }
