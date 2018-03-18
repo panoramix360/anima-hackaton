@@ -13,7 +13,8 @@ export default rdx.model.modelBuilder()
     "type": "object",
     "properties": {
       "_id": {"type": "string"},
-      "nome": { "type": "string", "required": true }
+      "nome": { "type": "string", "required": true },
+      "foto": { "type": "string", "required": true }
     }
   })
   .class(class {
