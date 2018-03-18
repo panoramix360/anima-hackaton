@@ -7,9 +7,11 @@
 import DummyFilter from './src/dummy-filter';
 import AlunoFilter from './src/aluno-filter';
 import ProfessorFilter from './src/professor-filter';
+import AulaFilter from './src/aula-filter';
 
 export {
     DummyFilter,
     AlunoFilter,
-    ProfessorFilter
+    ProfessorFilter,
+    AulaFilter
 };

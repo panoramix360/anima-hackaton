@@ -82,14 +82,14 @@ Content-Type: application/json
   "professor": {
     "nome": "Bonato",
     "foto": "teste",
-    "_id": "a6d8acd8-f9c4-4940-813e-2b83ccf4914c",
+    "_id": "teste",
     "_rev": "1-2f829fe7b59e4b529e1a8dbd71e78f3d"
   },
   "data": "2018-03-18T00:06:29.416Z"
 }
 
 ### List
-GET http://localhost:8080/aula
+GET http://localhost:8080/aula?profid=a6d8acd8-f9c4-4940-813e-2b83ccf4914c
 Content-Type: application/json
 
 ### Get by id
