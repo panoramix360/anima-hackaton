@@ -16,7 +16,12 @@ export class QRCodeBusiness {
     aluno = new Aluno(aluno);
     const aula = new Aula(JSON.parse(token));
     const presenca = new Presenca({aluno,aula});
+    this.ultimo = aluno;
     return await presenca.save();
+  }
+
+  ultimo() {
+    return this.ultimo;
   }
 }
 

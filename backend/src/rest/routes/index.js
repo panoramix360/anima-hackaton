@@ -19,6 +19,7 @@ const qrcodeRouter = rdx.http.router();
 
 qrcodeRouter.get("/gerar/:id", (req, res, next) => qrcodeBusiness.gerarQrCodeToken(req.params.id).then(token => res.json({token})).catch(next));
 qrcodeRouter.post("/validar", (req, res, next) => qrcodeBusiness.validarQrCodeToken(req.body.token, req.body.aluno).then(d => res.json(d)).catch(next));
+qrcodeRouter.post("/ultimo", (req, res) => res.json(qrcodeBusiness.ultimo()));
 avaliacaoRouter.post('/avaliar', (req, res, next) => avaliacaoBusiness.avaliar(req.body.presencaId, req.body.estrelas, req.body.descricao).then(d => res.json(d)).catch(next));
 
 const aulaRouter = rdx.http.router();

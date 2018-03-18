@@ -1,150 +1,31 @@
-### Aluno
-POST http://animo10.brazilsouth.cloudapp.azure.com:8080/aluno
-Content-Type: application/json
-
-{
-  "nome": "Lucas Reis",
-  "foto": "teste",
-  "matricula": "1"
-}
-
-### List
-GET http://localhost:8080/aluno
-Content-Type: application/json
-
-### Get by id
-GET http://localhost:8080/aluno/b956ac26-7c59-4d62-82b2-d493e7b12f0f
-Content-Type: application/json
-
-### Get by name
-GET http://localhost:8080/aluno?nome=Guilherme
-Content-Type: application/json
-
-### Delete
-DELETE http://localhost:8080/aluno/b956ac26-7c59-4d62-82b2-d493e7b12f0f
-Content-Type: application/json
-
-### Professor
-POST http://localhost:8080/professor
-Content-Type: application/json
-
-{
-  "nome": "Bonato",
-  "foto": "teste"
-}
-
-### List
-GET http://localhost:8080/professor
-Content-Type: application/json
-
-### Get by id
-GET http://localhost:8080/professor/94b8ea14-6a7d-464b-9065-6a30735066e0
-Content-Type: application/json
-
-### Get by name
-GET http://localhost:8080/professor?nome=Bonato
-Content-Type: application/json
-
-### Delete
-DELETE http://localhost:8080/professor/f20ee3fb-8eb9-4998-b5b9-ebc89e940269
-Content-Type: application/json
-
-### Disciplina
-POST http://localhost:8080/disciplina
-Content-Type: application/json
-
-{
-  "nome": "Desenvolvimento Mobile"
-}
-
-### List
-GET http://localhost:8080/disciplina
-Content-Type: application/json
-
-### Get by id
-GET http://localhost:8080/disciplina/2e0523ba-a941-4a3a-a994-e7fc3a70fbe5
-Content-Type: application/json
-
-### Delete
-DELETE http://localhost:8080/disciplina/de023b56-6a48-4af4-a242-9943d9cc6e83
-Content-Type: application/json
-
-### Aula
-POST http://localhost:8080/aula
-Content-Type: application/json
+POST http://animo10.brazilsouth.cloudapp.azure.com:8080/aula
+Content-Type: application/javascript
 
 {
   "disciplina": {
     "nome": "Desenvolvimento Mobile",
-    "_id": "0d44c351-769e-4c5f-a0de-4a2edaa5d262",
-    "_rev": "1-ad696b275cb542cabe4dbb4773d0b533"
+    "_id": "5bb4f2ef-ffe6-47c2-8dc3-ee6cdd17be38",
+    "_rev": "1-b3bb5f9454c4448eb0ad336b69bd85ec"
   },
-  "professor": {
-    "nome": "Bonato",
+  "professor":   {
+    "nome": "Nelson",
     "foto": "teste",
-    "_id": "teste",
-    "_rev": "1-2f829fe7b59e4b529e1a8dbd71e78f3d"
+    "_id": "c75980c8-3b1d-487e-a267-525dc3dc09a5",
+    "_rev": "1-ec6523fcf39c4007868740f621b96835"
   },
-  "data": "2018-03-18T00:06:29.416Z"
+  "data": "2018-03-10T03:00:00.000Z"
 }
 
 ###
-GET http://localhost:8080/aula/alunos/d0f79fde-b6fc-418b-91dd-5371fab7e4a6
+GET http://animo10.brazilsouth.cloudapp.azure.com:8080/professor
 
-### List
-GET http://localhost:8080/aula
-Content-Type: application/json
 
-### Get by id
-GET http://localhost:8080/aula/1bf951ad-8bc0-4d70-bfcf-36e44f88687a
-Content-Type: application/json
 
-### Get by id aluno
-GET http://localhost:8080/aula/consolidado/18641d52-2f5f-49a2-8723-da580a08d538
-Content-Type: application/json
 
-### Delete
-DELETE http://localhost:8080/aula/de023b56-6a48-4af4-a242-9943d9cc6e83
-Content-Type: application/json
 
-### Presenca
-POST http://localhost:8080/presenca
-Content-Type: application/json
 
-{
-  "aula": {
-    "disciplina": {
-      "nome": "Desenvolvimento Mobile",
-      "_id": "2e0523ba-a941-4a3a-a994-e7fc3a70fbe5",
-      "_rev": "1-032ba13801d846bf84b1a5376b94870c"
-    },
-    "professor": {
-      "nome": "Bonato",
-      "foto": "teste",
-      "_id": "94b8ea14-6a7d-464b-9065-6a30735066e0",
-      "_rev": "1-a63f4ae215ce45c7926961b8d8c5607a"
-    },
-    "data": "2018-03-18T00:06:29.416Z",
-    "_id": "1bf951ad-8bc0-4d70-bfcf-36e44f88687a",
-    "_rev": "2-2e50e8b9e56349c8be4f9d8d06c8b650"
-  },
-  "aluno":   {
-    "nome": "Guilherme",
-    "foto": "teste",
-    "matricula": "1",
-    "_id": "18641d52-2f5f-49a2-8723-da580a08d538",
-    "_rev": "1-1c6de7913a3f43d1a81611fd3e645447"
-  }
-}
 
-### List
-GET http://localhost:8080/presenca?aulaId=0634b2b5-9a0c-48a9-a641-9b6d549a1539
-Content-Type: application/json
 
-### Get by id
-GET http://localhost:8080/presenca/1bf951ad-8bc0-4d70-bfcf-36e44f88687a
-Content-Type: application/json
 
-### Delete
-DELETE http://localhost:8080/presenca/de023b56-6a48-4af4-a242-9943d9cc6e83
-Content-Type: application/json
+
+
