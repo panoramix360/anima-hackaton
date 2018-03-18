@@ -74,18 +74,16 @@ POST http://localhost:8080/aula
 Content-Type: application/json
 
 {
-  "_id": "1bf951ad-8bc0-4d70-bfcf-36e44f88687a",
-  "_rev": "1-3daf18a6b0404ab2879b4fc45eec15e4",
   "disciplina": {
     "nome": "Desenvolvimento Mobile",
-    "_id": "2e0523ba-a941-4a3a-a994-e7fc3a70fbe5",
-    "_rev": "1-032ba13801d846bf84b1a5376b94870c"
+    "_id": "0d44c351-769e-4c5f-a0de-4a2edaa5d262",
+    "_rev": "1-ad696b275cb542cabe4dbb4773d0b533"
   },
   "professor": {
     "nome": "Bonato",
     "foto": "teste",
-    "_id": "94b8ea14-6a7d-464b-9065-6a30735066e0",
-    "_rev": "1-a63f4ae215ce45c7926961b8d8c5607a"
+    "_id": "a6d8acd8-f9c4-4940-813e-2b83ccf4914c",
+    "_rev": "1-2f829fe7b59e4b529e1a8dbd71e78f3d"
   },
   "data": "2018-03-18T00:06:29.416Z"
 }

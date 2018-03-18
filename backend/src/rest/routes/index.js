@@ -14,7 +14,8 @@ import {
 } from "../../business";
 
 const qrcodeRouter = rdx.http.router();
-qrcodeRouter.get("/gerar/{id}", (req, res, next) => qrcodeBusiness.gerarQrCodeToken(req.params.id).then(token => res.json({token})).catch(next));
+qrcodeRouter.get("/gerar/:id", (req, res, next) => qrcodeBusiness.gerarQrCodeToken(req.params.id).then(token => res.json({token})).catch(next));
+qrcodeRouter.post("/validar", (req, res, next) => qrcodeBusiness.validarQrCodeToken(req.body.token, req.body.aluno).then(d => res.json(d)).catch(next));
 
 export default {
   "/aluno": rdx.pouchdb.crud.crudRouter(rdx.http.router(), alunoBusiness),
