@@ -10,6 +10,7 @@ import disciplinaBusiness from './src/disciplina-business';
 import presencaBusiness from './src/presenca-business';
 import professorBusiness from './src/professor-business';
 import qrcodeBusiness from './src/qrcode-business';
+import avaliacaoBusiness from './src/avaliacao-business';
 
 
 export {
@@ -18,5 +19,6 @@ export {
   disciplinaBusiness,
   presencaBusiness,
   professorBusiness,
-  qrcodeBusiness
+  qrcodeBusiness,
+  avaliacaoBusiness
 }

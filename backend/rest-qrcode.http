@@ -1,3 +1,18 @@
+### Buscar todas as avaliacoes
+GET http://localhost:8080/avaliacao/d77cc5bb-03ef-448a-ae56-3456f56d61ae
+
+
+### Avaliar
+
+POST http://localhost:8080/avaliacao/avaliar
+Content-Type: application/json
+
+{
+  "presencaId": "faafe1e4-6bcd-4154-970e-884864b7ecf9",
+  "estrelas": 2,
+  "descricao": "professor ruim!"
+}
+
 ### QRCode
 GET http://localhost:8080/qrcode/gerar/a60c64df-0e8e-45bc-923d-77966ac523ec
 Content-Type: application/json
