@@ -41,6 +41,10 @@ Content-Type: application/json
 GET http://localhost:8080/professor/94b8ea14-6a7d-464b-9065-6a30735066e0
 Content-Type: application/json
 
+### Get by name
+GET http://localhost:8080/professor?nome=Bonato
+Content-Type: application/json
+
 ### Delete
 DELETE http://localhost:8080/professor/f20ee3fb-8eb9-4998-b5b9-ebc89e940269
 Content-Type: application/json

@@ -6,8 +6,10 @@
 
 import DummyFilter from './src/dummy-filter';
 import AlunoFilter from './src/aluno-filter';
+import ProfessorFilter from './src/professor-filter';
 
 export {
     DummyFilter,
-    AlunoFilter
+    AlunoFilter,
+    ProfessorFilter
 };

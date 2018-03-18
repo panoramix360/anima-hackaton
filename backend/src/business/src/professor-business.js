@@ -8,15 +8,14 @@ import {
   Professor
 } from '../../entity';
 import {
-  DummyFilter
+  ProfessorFilter
 } from '../../entity/filter';
 import CrudLoggerBusiness from '../../lib/crud-logger-business';
 
 export class ProfessorBusiness extends CrudLoggerBusiness {
-  toFilter() {
-    this.logger.trace('Professor');
-    return () => true;
+  toFilter(filter) {
+    return model => !filter.nome || filter.nome == model.nome;
   }
 }
 
-export default new ProfessorBusiness(Professor, DummyFilter);
+export default new ProfessorBusiness(Professor, ProfessorFilter);

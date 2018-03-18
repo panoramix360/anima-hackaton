@@ -7,7 +7,7 @@ import rdx from 'rdx-framework';
 
 export default rdx.model.modelBuilder()
   .schema({
-    "id": "/AlunoFilter",
+    "id": "/ProfessorFilter",
     "type": "object",
     "properties": {
       "nome": {"type": "string"}
