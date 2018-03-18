@@ -32,9 +32,16 @@ export class AulaBusiness extends CrudLoggerBusiness {
 
     const consolidado = map(presencaPorDisciplina, presencas => {
       const aulas = presencas.map(p => p.aula);
+      const aulastotal = todasAulas.map(a => {
+        if(aulas.find(x => a._id === x._id)){
+          a.ir = true;
+        }
+        return a;
+      })
       const disciplina = presencas.map(p => p.aula.disciplina)[0];
       const frequencia = aulas.length / todasAulas.filter(x => x.disciplina._id === disciplina._id).length;
       return {
+        aulastotal,
         aulas,
         disciplina,
         frequencia
