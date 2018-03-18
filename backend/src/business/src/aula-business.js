@@ -25,12 +25,10 @@ export class AulaBusiness extends CrudLoggerBusiness {
     if (!presencaList || !presencaList.length) {
       return [];
     }
-    const presencaPorDisciplina = map(
-      groupBy(presencaList, presenca => presenca.aula.disciplina._id),
-      presencas => presencas
-    );
+    const presencaPorDisciplina = groupBy(presencaList, presenca => presenca.aula.disciplina._id);
 
     const consolidado = map(presencaPorDisciplina, presencas => {
+      const disciplina = presencas.map(p => p.aula.disciplina)[0];
       const aulas = presencas.map(p => p.aula);
       const aulastotal = todasAulas.filter(x => x.disciplina._id === disciplina._id).map(a => {
         if(aulas.find(x => a._id === x._id)){
@@ -38,7 +36,6 @@ export class AulaBusiness extends CrudLoggerBusiness {
         }
         return a;
       })
-      const disciplina = presencas.map(p => p.aula.disciplina)[0];
       const frequencia = aulas.length / todasAulas.filter(x => x.disciplina._id === disciplina._id).length;
       return {
         aulastotal,
