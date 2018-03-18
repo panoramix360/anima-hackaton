@@ -16,7 +16,7 @@ const { HTTPRequestError, ValidationError, BusinessError } = rdx.model.error;
  */
 export default function(err, req, res, next) {
   if(err) {
-
+    console.log(err);
     // Catch errors of model validation
     if(err instanceof ValidationError) {
       err = new HTTPRequestError(HTTPRequestError.Type.VALIDATION, err.code, err.message, err);

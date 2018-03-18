@@ -11,16 +11,31 @@ import {
 import {
   DummyFilter
 } from '../../entity/filter';
-import { groupBy } from 'lodash';
+import { groupBy, map } from 'lodash';
 import CrudLoggerBusiness from '../../lib/crud-logger-business';
 
 export class AulaBusiness extends CrudLoggerBusiness {
 
-  async listAulasDoAluno(alunoId) {
-    var presencaList = await Presenca.find((presenca) => { console.log(presenca) });
-    console.log(presencaList);
-    //presencaList = groupBy(presencaList, (presenca) => presenca.disciplina._id);
-    return presencaList;
+  async consolidado(alunoId) {
+    const todasAulas = await Aula.find(() => true);
+    const presencaList = await Presenca.find(presenca =>presenca.aluno._id === alunoId);
+    if (!presencaList || !presencaList.length){
+      return [];
+    }
+    const presencaPorDisciplina = map(
+      groupBy(presencaList, presenca => presenca.aula.disciplina._id),
+      presencas => presencas
+    );
+
+    const consolidado = map(presencaPorDisciplina, presencas => {
+      const aulas = presencas.map(p => p.aula);
+      const disciplina = presencas.map(p => p.aula.disciplina)[0];
+      console.log(aulas.length, todasAulas.filter(x => x.disciplina._id === disciplina._id).length);
+      const frequencia = aulas.length / todasAulas.filter(x => x.disciplina._id === disciplina._id).length;
+      return { aulas, disciplina, frequencia };
+    });
+
+    return consolidado;
   }
 
   toFilter() {

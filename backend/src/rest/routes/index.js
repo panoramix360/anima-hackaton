@@ -22,7 +22,7 @@ qrcodeRouter.post("/validar", (req, res, next) => qrcodeBusiness.validarQrCodeTo
 avaliacaoRouter.post('/avaliar', (req, res, next) => avaliacaoBusiness.avaliar(req.body.presencaId, req.body.estrelas, req.body.descricao).then(d => res.json(d)).catch(next));
 
 const aulaRouter = rdx.http.router();
-aulaRouter.get("/consolidado/:id", (req, res, next) => aulaBusiness.listAulasDoAluno(req.params.id).then(list => res.json(list)).catch(next));
+aulaRouter.get("/consolidado/:id", (req, res, next) => aulaBusiness.consolidado(req.params.id).then(list => res.json(list)).catch(next));
 
 export default {
   "/aluno": rdx.pouchdb.crud.crudRouter(rdx.http.router(), alunoBusiness),
