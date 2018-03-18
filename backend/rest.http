@@ -16,6 +16,10 @@ Content-Type: application/json
 GET http://localhost:9000/aluno/b956ac26-7c59-4d62-82b2-d493e7b12f0f
 Content-Type: application/json
 
+### Get by name
+GET http://localhost:9000/aluno?nome=Guilherme
+Content-Type: application/json
+
 ### Delete
 DELETE http://localhost:9000/aluno/b956ac26-7c59-4d62-82b2-d493e7b12f0f
 Content-Type: application/json

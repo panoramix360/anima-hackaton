@@ -8,15 +8,15 @@ import {
   Aluno
 } from '../../entity';
 import {
-  DummyFilter
+  AlunoFilter
 } from '../../entity/filter';
 import CrudLoggerBusiness from '../../lib/crud-logger-business';
 
 export class AlunoBusiness extends CrudLoggerBusiness {
-  toFilter() {
+  toFilter(filter) {
     this.logger.trace('Aluno');
-    return () => true;
+    return model => !filter.nome || filter.nome == model.nome;
   }
 }
 
-export default new AlunoBusiness(Aluno, DummyFilter);
+export default new AlunoBusiness(Aluno, AlunoFilter);

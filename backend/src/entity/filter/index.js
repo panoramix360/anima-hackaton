@@ -5,5 +5,9 @@
  */
 
 import DummyFilter from './src/dummy-filter';
+import AlunoFilter from './src/aluno-filter';
 
-export { DummyFilter };
+export {
+    DummyFilter,
+    AlunoFilter
+};
