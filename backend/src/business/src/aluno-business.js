@@ -14,7 +14,7 @@ import CrudLoggerBusiness from '../../lib/crud-logger-business';
 
 export class AlunoBusiness extends CrudLoggerBusiness {
   toFilter(filter) {
-    return model => !filter.nome || filter.nome == model.nome;
+    return model => !filter.nome || filter.nome === model.nome;
   }
 }
 

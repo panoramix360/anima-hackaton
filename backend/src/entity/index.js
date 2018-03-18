@@ -9,11 +9,13 @@ import Professor from './src/professor';
 import Disciplina from './src/disciplina';
 import Aula from './src/aula';
 import Presenca from './src/presenca';
+import Avaliacao from './src/avaliacao';
 
 export {
-    Aluno,
-    Professor,
-    Disciplina,
-    Aula,
-    Presenca
+  Aluno,
+  Professor,
+  Disciplina,
+  Aula,
+  Avaliacao,
+  Presenca
 };

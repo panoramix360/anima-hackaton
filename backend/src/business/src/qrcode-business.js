@@ -3,33 +3,20 @@
  * @module '@backend/src/business'
  * @author 'lucas.reis,fausto.junqueira'
  */
-import Aula from '../../entity';
-import * as jwt from 'jsonwebtoken';
-
-const secret = "YW5pbWEtaGFja2F0b24=";
+import {Aula, Aluno, Presenca} from '../../entity';
 
 export class QRCodeBusiness {
-  jwtSign(aula) {
-    return new Promise(function(resolve, reject) {
-      jwt.sign(aula, secret, { expiresIn: "20s" }, function(err, token) {
-        if(err) {
-          return reject(err);
-        }
-        resolve(token);
-      });
-    });
-  }
 
   async gerarQrCodeToken(aulaId) {
     const aula = await Aula.get(aulaId);
-    console.log(JSON.stringify(aula));
-    var novoToken = await this.jwtSign(aula);
-    console.log(novoToken);
-    return novoToken;
+    return JSON.stringify(aula);
   }
 
-  validarQrCodeToken() {
-
+  async validarQrCodeToken(token, aluno) {
+    aluno = new Aluno(aluno);
+    const aula = new Aula(JSON.parse(token));
+    const presenca = new Presenca({aluno,aula});
+    return await presenca.save();
   }
 }
 
