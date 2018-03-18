@@ -9,6 +9,7 @@ import aulaBusiness from './src/aula-business';
 import disciplinaBusiness from './src/disciplina-business';
 import presencaBusiness from './src/presenca-business';
 import professorBusiness from './src/professor-business';
+import qrcodeBusiness from './src/qrcode-business';
 
 
 export {
@@ -16,5 +17,6 @@ export {
   aulaBusiness,
   disciplinaBusiness,
   presencaBusiness,
-  professorBusiness
+  professorBusiness,
+  qrcodeBusiness
 }

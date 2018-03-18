@@ -1,5 +1,5 @@
 ### Aluno
-POST https://localhost:9000/aluno
+POST http://localhost:9000/aluno
 Content-Type: application/json
 
 {
@@ -9,19 +9,19 @@ Content-Type: application/json
 }
 
 ### List
-GET https://localhost:9000/aluno
+GET http://localhost:9000/aluno
 Content-Type: application/json
 
 ### Get by id
-GET https://localhost:9000/aluno/b956ac26-7c59-4d62-82b2-d493e7b12f0f
+GET http://localhost:9000/aluno/b956ac26-7c59-4d62-82b2-d493e7b12f0f
 Content-Type: application/json
 
 ### Delete
-DELETE https://localhost:9000/aluno/b956ac26-7c59-4d62-82b2-d493e7b12f0f
+DELETE http://localhost:9000/aluno/b956ac26-7c59-4d62-82b2-d493e7b12f0f
 Content-Type: application/json
 
 ### Professor
-POST https://localhost:9000/professor
+POST http://localhost:9000/professor
 Content-Type: application/json
 
 {
@@ -30,19 +30,19 @@ Content-Type: application/json
 }
 
 ### List
-GET https://localhost:9000/professor
+GET http://localhost:9000/professor
 Content-Type: application/json
 
 ### Get by id
-GET https://localhost:9000/professor/94b8ea14-6a7d-464b-9065-6a30735066e0
+GET http://localhost:9000/professor/94b8ea14-6a7d-464b-9065-6a30735066e0
 Content-Type: application/json
 
 ### Delete
-DELETE https://localhost:9000/professor/f20ee3fb-8eb9-4998-b5b9-ebc89e940269
+DELETE http://localhost:9000/professor/f20ee3fb-8eb9-4998-b5b9-ebc89e940269
 Content-Type: application/json
 
 ### Disciplina
-POST https://localhost:9000/disciplina
+POST http://localhost:9000/disciplina
 Content-Type: application/json
 
 {
@@ -50,19 +50,19 @@ Content-Type: application/json
 }
 
 ### List
-GET https://localhost:9000/disciplina
+GET http://localhost:9000/disciplina
 Content-Type: application/json
 
 ### Get by id
-GET https://localhost:9000/disciplina/2e0523ba-a941-4a3a-a994-e7fc3a70fbe5
+GET http://localhost:9000/disciplina/2e0523ba-a941-4a3a-a994-e7fc3a70fbe5
 Content-Type: application/json
 
 ### Delete
-DELETE https://localhost:9000/disciplina/de023b56-6a48-4af4-a242-9943d9cc6e83
+DELETE http://localhost:9000/disciplina/de023b56-6a48-4af4-a242-9943d9cc6e83
 Content-Type: application/json
 
 ### Aula
-POST https://localhost:9000/aula
+POST http://localhost:9000/aula
 Content-Type: application/json
 
 {
@@ -83,19 +83,19 @@ Content-Type: application/json
 }
 
 ### List
-GET https://localhost:9000/aula
+GET http://localhost:9000/aula
 Content-Type: application/json
 
 ### Get by id
-GET https://localhost:9000/aula/1bf951ad-8bc0-4d70-bfcf-36e44f88687a
+GET http://localhost:9000/aula/1bf951ad-8bc0-4d70-bfcf-36e44f88687a
 Content-Type: application/json
 
 ### Delete
-DELETE https://localhost:9000/aula/de023b56-6a48-4af4-a242-9943d9cc6e83
+DELETE http://localhost:9000/aula/de023b56-6a48-4af4-a242-9943d9cc6e83
 Content-Type: application/json
 
 ### Presenca
-POST https://localhost:9000/presenca
+POST http://localhost:9000/presenca
 Content-Type: application/json
 
 {
@@ -125,13 +125,13 @@ Content-Type: application/json
 }
 
 ### List
-GET https://localhost:9000/presenca
+GET http://localhost:9000/presenca
 Content-Type: application/json
 
 ### Get by id
-GET https://localhost:9000/presenca/1bf951ad-8bc0-4d70-bfcf-36e44f88687a
+GET http://localhost:9000/presenca/1bf951ad-8bc0-4d70-bfcf-36e44f88687a
 Content-Type: application/json
 
 ### Delete
-DELETE https://localhost:9000/presenca/de023b56-6a48-4af4-a242-9943d9cc6e83
+DELETE http://localhost:9000/presenca/de023b56-6a48-4af4-a242-9943d9cc6e83
 Content-Type: application/json
